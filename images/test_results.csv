@@ -1,0 +1,6 @@
+model,test_rmse,nasa_score
+lightgbm,14.31,329.1
+xgboost,14.88,367.9
+linear_rolling,15.84,375.5
+random_forest,15.94,431.2
+baseline_mean,41.94,33354.5
