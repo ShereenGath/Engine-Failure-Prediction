@@ -104,7 +104,10 @@ uvicorn src.api:app --reload
 
 ## Project structure
 
-```
+## Project structure
+
+```text
+Engine-Failure-Prediction/
 ├── notebooks/
 │   ├── 01_eda.ipynb          # data exploration, sensor selection
 │   └── 02_models.ipynb       # model comparison, error analysis, final test
@@ -119,7 +122,7 @@ uvicorn src.api:app --reload
 ├── images/                   # charts used in this README
 ├── results/                  # final test results
 ├── requirements.txt          # full environment
-└── requirements-api.txt      # minimal libraries for the API container
+└── requirements-api.txt      # minimal libraries for the API
 ```
 
 Notebooks hold the analysis and model selection; `src/` holds the production code. Both use the same feature functions, so training and serving prepare data identically.
