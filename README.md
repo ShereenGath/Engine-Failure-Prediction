@@ -104,8 +104,6 @@ uvicorn src.api:app --reload
 
 ## Project structure
 
-## Project structure
-
 ```text
 Engine-Failure-Prediction/
 ├── notebooks/
