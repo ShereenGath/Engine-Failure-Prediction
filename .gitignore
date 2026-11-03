@@ -230,7 +230,11 @@ notebooks/mlflow.db
 
 # Data and trained models (too big; link to the source instead)
 data/
-models/
 
 # Python environment
 .venv/
+
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.pyc
