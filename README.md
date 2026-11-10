@@ -129,6 +129,8 @@ uvicorn src.api:app --reload
 
 ```text
 Engine-Failure-Prediction/
+├── .github/workflows/
+│   └── python-app.yml        # CI/CD: lint, test, build and push Docker image
 ├── notebooks/
 │   ├── 01_eda.ipynb          # data exploration, sensor selection
 │   └── 02_models.ipynb       # model comparison, error analysis, final test
@@ -142,13 +144,10 @@ Engine-Failure-Prediction/
 ├── examples/                 # example API request
 ├── images/                   # charts used in this README
 ├── results/                  # final test results
-├── requirements.txt          # full environment
-└── requirements-api.txt      # minimal libraries for the API
-├── .github/workflows/
-│   └── python-app.yml        # CI/CD: lint, test, build and push Docker image
 ├── Dockerfile                # container for the API
-├── .dockerignore
-├── pytest.ini
+├── .dockerignore             # files excluded from the Docker image
+├── pytest.ini                # pytest settings
+└── requirements-api.txt      # full environment
 ```
 
 Notebooks hold the analysis and model selection; `src/` holds the production code. Both use the same feature functions, so training and serving prepare data identically.
