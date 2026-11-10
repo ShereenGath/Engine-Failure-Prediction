@@ -84,7 +84,15 @@ POST /predict
 
 → {"predicted_rul": 124.1, "cycles_received": 30, "note": "Degradation visible: monitor."}
 ```
+## CI/CD
 
+Every push to `main` triggers a GitHub Actions pipeline (`.github/workflows/python-app.yml`):
+
+1. **Lint:** flake8 checks the code for syntax errors and undefined names.
+2. **Test:** pytest runs the feature and API tests.
+3. **Build and publish:** if the tests pass, the Docker image is built and pushed to GitHub Container Registry (`ghcr.io/shereengath/engine-rul:latest`).
+
+So the published image always contains code that passed the tests.
 ![API docs](images/api_docs.jpg)
 
 ## How to run
