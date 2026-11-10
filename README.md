@@ -1,8 +1,9 @@
 # Engine Failure Prediction: Remaining Useful Life of Turbofan Engines
 ![CI](https://github.com/ShereenGath/Engine-Failure-Prediction/actions/workflows/python-app.yml/badge.svg)
+
 Predicting how many cycles a jet engine has left before failure from its sensor readings, using the NASA C-MAPSS dataset. The final model predicts remaining life **within about 15 cycles on unseen engines, 65% better than a naive baseline**, and is served as a REST API in Docker.
 
-![CI](https://github.com/ShereenGath/Engine-Failure-Prediction/actions/workflows/python-app.yml/badge.svg) ![Python](https://img.shields.io/badge/Python-3.12-blue) ![XGBoost](https://img.shields.io/badge/XGBoost-model-orange) ![MLflow](https://img.shields.io/badge/MLflow-tracking-0194E2) ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688) ![Docker](https://img.shields.io/badge/Docker-container-2496ED)
+![Python](https://img.shields.io/badge/Python-3.12-blue) ![XGBoost](https://img.shields.io/badge/XGBoost-model-orange) ![MLflow](https://img.shields.io/badge/MLflow-tracking-0194E2) ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688) ![Docker](https://img.shields.io/badge/Docker-container-2496ED)
 
 ## Problem
 
