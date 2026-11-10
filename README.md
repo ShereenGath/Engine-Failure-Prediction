@@ -84,6 +84,8 @@ POST /predict
 
 → {"predicted_rul": 124.1, "cycles_received": 30, "note": "Degradation visible: monitor."}
 ```
+![API docs](images/api_docs.jpg)
+
 ## CI/CD
 
 Every push to `main` triggers a GitHub Actions pipeline (`.github/workflows/python-app.yml`):
@@ -93,9 +95,20 @@ Every push to `main` triggers a GitHub Actions pipeline (`.github/workflows/pyth
 3. **Build and publish:** if the tests pass, the Docker image is built and pushed to GitHub Container Registry (`ghcr.io/shereengath/engine-rul:latest`).
 
 So the published image always contains code that passed the tests.
-![API docs](images/api_docs.jpg)
+
 
 ## How to run
+
+### Option A: Docker (no Python setup needed)
+
+```bash
+docker pull ghcr.io/shereengath/engine-rul:latest
+docker run -p 8000:8000 ghcr.io/shereengath/engine-rul:latest
+```
+
+Open http://localhost:8000/docs to try the API. An example request is in `examples/`.
+
+### Option B: Local Python
 
 ```bash
 # 1. Install
@@ -109,6 +122,7 @@ python -m pytest
 
 # 4. Start the API and open http://127.0.0.1:8000/docs
 uvicorn src.api:app --reload
+```
 
 
 ## Project structure
@@ -130,13 +144,18 @@ Engine-Failure-Prediction/
 ├── results/                  # final test results
 ├── requirements.txt          # full environment
 └── requirements-api.txt      # minimal libraries for the API
+├── .github/workflows/
+│   └── python-app.yml        # CI/CD: lint, test, build and push Docker image
+├── Dockerfile                # container for the API
+├── .dockerignore
+├── pytest.ini
 ```
 
 Notebooks hold the analysis and model selection; `src/` holds the production code. Both use the same feature functions, so training and serving prepare data identically.
 
 ## Tech stack
 
-Python, pandas, NumPy, scikit-learn, XGBoost, LightGBM, Matplotlib, Seaborn, MLflow, FastAPI, Pydantic, pytest
+Python, pandas, NumPy, scikit-learn, XGBoost, LightGBM, Matplotlib, Seaborn, MLflow, FastAPI, Pydantic, pytest, Docker, GitHub Actions, flake8
 
 ## Next steps
 
